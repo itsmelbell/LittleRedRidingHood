@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72dc0eea164184d448bfc0edf755e7c5, type: 3}
+  m_Name: GrandMotherDialouge
+  m_EditorClassIdentifier: Assembly-CSharp::NPCDialouge
+  npcName: Grandmother
+  npcPortrait: {fileID: 0}
+  dialougeLines:
+  - Oh hello dear, so nice to see you!
+  - Would be a doll and gather some ingredients in the forest?
+  - Oh thank you darling! Just head out of the cottage here, and follow the trail
+    to the right.
+  typingSpeed: 0.05
+  voiceSound: {fileID: 0}
+  voicePitch: 1
+  autoProgressLines: 010100
+  autoProgressDelay: 1.5
