@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 01dc1b2865989f24c9e1377c4769839a
+guid: 21b73c5f06e976641833226251f7eff4
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -1060946607284140638
-    second: interactButton_0
+      213: 6683615111705859281
+    second: Bee_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: interactButton_0
+      name: Bee_0
       rect:
         serializedVersion: 2
-        x: 5
-        y: 5
-        width: 25
-        height: 25
+        x: 2
+        y: 0
+        width: 29
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 2a54c2b8ea2c641f0800000000000000
-      internalID: -1060946607284140638
+      spriteID: 1d419a46888f0cc50800000000000000
+      internalID: 6683615111705859281
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      interactButton_0: -1060946607284140638
+      Bee_0: 6683615111705859281
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

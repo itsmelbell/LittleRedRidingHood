@@ -2,9 +2,9 @@ using UnityEngine;
 
 public static class GlobalHelper
 {
-    public static bool hasFlour {get; private set; } = false;   
-    public static void getFlour(bool accquired){
-        hasFlour = accquired;
+    public static bool hasSugar {get; private set; } = false;   
+    public static void getSugar(bool accquired){
+        hasSugar = accquired;
     }
 
     public static bool hasEgg {get; private set; } = false;   
