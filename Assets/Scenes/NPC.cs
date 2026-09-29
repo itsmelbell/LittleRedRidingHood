@@ -18,7 +18,7 @@ public class NPC : MonoBehaviour, IInteractable
     }
 
     public void Interact(){
-        if(dialougeData == null){
+        if(dialougeData == null || (PauseController.IsGamePaused && !isDialougeActive)){
             return;
         } if(isDialougeActive){
             NextLine();
@@ -36,6 +36,7 @@ public class NPC : MonoBehaviour, IInteractable
         portraitImage.sprite = dialougeData.npcPortrait;
 
         dialougePanel.SetActive(true);
+        PauseController.SetPause(true);
 
         StartCoroutine(TypeLine());
 
@@ -74,5 +75,6 @@ public class NPC : MonoBehaviour, IInteractable
         isDialougeActive = false;
         dialougeText.SetText("");
         dialougePanel.SetActive(false);
+        PauseController.SetPause(false);
     }
 }

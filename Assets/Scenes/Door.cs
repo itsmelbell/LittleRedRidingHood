@@ -9,6 +9,8 @@ public class Door : MonoBehaviour, IInteractable
     [SerializeField] private GameObject player;
     CinemachineConfiner2D confiner;
 
+    [SerializeField] private CinemachineCamera cCam;
+    [SerializeField] private float zoneOrthographicSize = 3f;
     [SerializeField] private float x;
     [SerializeField] private float y;
 
@@ -35,6 +37,8 @@ public class Door : MonoBehaviour, IInteractable
     {
         confiner.BoundingShape2D = mapBoundry;
         confiner.InvalidateBoundingShapeCache();
+        cCam.Lens.OrthographicSize = zoneOrthographicSize;
+
         player.transform.position = new Vector3(x, y, 0f);
     }
     
