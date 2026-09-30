@@ -11,7 +11,7 @@ public class PlayerMovement : MonoBehaviour
     private Animator animator;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();

@@ -16,11 +16,21 @@ MonoBehaviour:
   npcPortrait: {fileID: 0}
   dialougeLines:
   - Oh hello dear, so nice to see you!
-  - Would be a doll and gather some ingredients in the forest?
+  - I would just love to make an apple pie for you to take back for your parents...
+  - But it seems I am missing a few ingredients!
+  - Would you be a doll and find some honey, eggs, and apples for me?
   - Oh thank you darling! Just head out of the cottage here, and follow the trail
     to the right.
+  - the fucking new gen will kill us all.
   typingSpeed: 0.05
   voiceSound: {fileID: 0}
   voicePitch: 1
-  autoProgressLines: 010100
+  autoProgressLines: 0101010100
+  endDialougeLines: 000000000101
   autoProgressDelay: 1.5
+  choices:
+  - dialougeIndex: 3
+    choices:
+    - Of couse, Grandma!
+    - Umm, I don't really want to.
+    nextDialougeIndexes: 0400000005000000

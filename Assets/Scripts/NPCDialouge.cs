@@ -11,5 +11,15 @@ public class NPCDialouge: ScriptableObject
     public AudioClip voiceSound;
     public float voicePitch = 1f;
     public bool[] autoProgressLines;
+    public bool[] endDialougeLines;
     public float autoProgressDelay = 1.5f;
+
+    public DialougeChoice[] choices;
+}
+
+[System.Serializable]
+public class DialougeChoice{
+    public int dialougeIndex;
+    public string[] choices;
+    public int[] nextDialougeIndexes;
 }
