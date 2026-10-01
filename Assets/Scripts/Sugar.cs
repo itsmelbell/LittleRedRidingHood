@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Sugar : MonoBehaviour, IInteractable
 {
@@ -13,6 +14,6 @@ public class Sugar : MonoBehaviour, IInteractable
 
     public void collectItem(){
         GlobalHelper.getSugar(true);
-        print("sugar accquired");
+        FindAnyObjectByType<SceneTransition>().ReturnToOverWorld();   
     }
 }

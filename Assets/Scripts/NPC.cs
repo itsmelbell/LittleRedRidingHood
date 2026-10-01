@@ -4,10 +4,17 @@ using UnityEngine.UI;
 using System.Collections;
 using UnityEngine.SceneManagement;
 
+public enum RequiredItem {None, Sugar, Apple}
+
 public class NPC : MonoBehaviour, IInteractable
 {
     public NPCDialouge dialougeData;
+    public NPCDialouge itemDialouge;
+    [SerializeField] private RequiredItem requiredItem;
+
+
     private DialougeController dialougeUI;
+
 
     private int dialougeIndex;
     private bool isTyping, isDialougeActive;
@@ -28,10 +35,30 @@ public class NPC : MonoBehaviour, IInteractable
         } else {
             StartDialouge();
         }
+    }
 
+    private bool HasRequiredItem(){
+        switch(requiredItem){
+            case RequiredItem.Sugar: return GlobalHelper.hasSugar;
+            case RequiredItem.Apple: return GlobalHelper.hasApple;
+            default: return false;
+        }
+    }
+
+    private NPCDialouge GetCurrentDialouge(){
+        if(HasRequiredItem()){
+            return itemDialouge;
+        } 
+        return dialougeData;
     }
 
     void StartDialouge(){
+        dialougeData = GetCurrentDialouge();
+
+        if(dialougeData == null){
+            return;
+        }
+
         isDialougeActive = true;
         dialougeIndex = 0;
 

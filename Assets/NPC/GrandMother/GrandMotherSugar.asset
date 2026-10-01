@@ -10,16 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 72dc0eea164184d448bfc0edf755e7c5, type: 3}
-  m_Name: BeeDialouge 2
+  m_Name: GrandMotherSugar
   m_EditorClassIdentifier: Assembly-CSharp::NPCDialouge
-  npcName: Bee
+  npcName: Grandmother
   npcPortrait: {fileID: 0}
   dialougeLines:
-  - Navigate through the maze!
+  - Just a few more ingredients, dear!
   typingSpeed: 0.05
   voiceSound: {fileID: 0}
   voicePitch: 1
-  autoProgressLines: 01
+  autoProgressLines: 
   endDialougeLines: 
   autoProgressDelay: 1.5
   choices: []

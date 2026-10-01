@@ -10,16 +10,25 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 72dc0eea164184d448bfc0edf755e7c5, type: 3}
-  m_Name: BeeDialouge 2
+  m_Name: BearDialouge1
   m_EditorClassIdentifier: Assembly-CSharp::NPCDialouge
-  npcName: Bee
+  npcName: Bear
   npcPortrait: {fileID: 0}
   dialougeLines:
-  - Navigate through the maze!
+  - pip pip cheerio
+  - shore thing! right behind me there's an apple orchard.
+  - I must warn ya, the apple tree can be a bit... hard to catch!
+  - Righty then brave soul, go catch 10 apples!
+  - Alrighty then.
   typingSpeed: 0.05
   voiceSound: {fileID: 0}
   voicePitch: 1
-  autoProgressLines: 01
-  endDialougeLines: 
+  autoProgressLines: 0101010000
+  endDialougeLines: 0000000101
   autoProgressDelay: 1.5
-  choices: []
+  choices:
+  - dialougeIndex: 0
+    choices:
+    - Do you have any spare apples?
+    - Just passing through
+    nextDialougeIndexes: 0100000004000000

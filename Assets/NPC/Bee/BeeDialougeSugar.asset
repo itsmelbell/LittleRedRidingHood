@@ -10,16 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 72dc0eea164184d448bfc0edf755e7c5, type: 3}
-  m_Name: BeeDialouge 2
+  m_Name: BeeDialougeSugar
   m_EditorClassIdentifier: Assembly-CSharp::NPCDialouge
   npcName: Bee
   npcPortrait: {fileID: 0}
   dialougeLines:
-  - Navigate through the maze!
+  - Buzz buzz good job collecting the sugar
   typingSpeed: 0.05
   voiceSound: {fileID: 0}
   voicePitch: 1
-  autoProgressLines: 01
+  autoProgressLines: 00
   endDialougeLines: 
   autoProgressDelay: 1.5
   choices: []
