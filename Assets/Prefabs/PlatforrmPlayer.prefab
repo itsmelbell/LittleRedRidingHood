@@ -14,7 +14,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3894346743055306175, guid: cd9616430b956694088a1ae11184d03e, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5206499544670477574, guid: cd9616430b956694088a1ae11184d03e, type: 3}
       propertyPath: m_Controller
@@ -58,6 +58,46 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6696739866721387530, guid: cd9616430b956694088a1ae11184d03e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8287396170511164119, guid: cd9616430b956694088a1ae11184d03e, type: 3}
+      propertyPath: m_ActionEvents.Array.size
+      value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: 8287396170511164119, guid: cd9616430b956694088a1ae11184d03e, type: 3}
+      propertyPath: m_ActionEvents.Array.data[13].m_ActionId
+      value: c6c2c126-68c6-49a1-8c76-be4cb99d1be3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8287396170511164119, guid: cd9616430b956694088a1ae11184d03e, type: 3}
+      propertyPath: m_ActionEvents.Array.data[14].m_ActionId
+      value: 375301a4-cfcc-4b2f-9367-09d40a74248b
+      objectReference: {fileID: 0}
+    - target: {fileID: 8287396170511164119, guid: cd9616430b956694088a1ae11184d03e, type: 3}
+      propertyPath: m_ActionEvents.Array.data[15].m_ActionId
+      value: e7797662-87fb-47e9-89f6-4b0ec24cb75e
+      objectReference: {fileID: 0}
+    - target: {fileID: 8287396170511164119, guid: cd9616430b956694088a1ae11184d03e, type: 3}
+      propertyPath: m_ActionEvents.Array.data[16].m_ActionId
+      value: f9c34eb1-636e-4726-a40a-866c46e1203d
+      objectReference: {fileID: 0}
+    - target: {fileID: 8287396170511164119, guid: cd9616430b956694088a1ae11184d03e, type: 3}
+      propertyPath: m_ActionEvents.Array.data[13].m_ActionName
+      value: 'Platformers/Jump[/Keyboard/w,/Keyboard/upArrow,/Keyboard/space]'
+      objectReference: {fileID: 0}
+    - target: {fileID: 8287396170511164119, guid: cd9616430b956694088a1ae11184d03e, type: 3}
+      propertyPath: m_ActionEvents.Array.data[14].m_ActionName
+      value: 'Platformers/Move[/Keyboard/a,/Keyboard/leftArrow,/Keyboard/d,/Keyboard/rightArrow]'
+      objectReference: {fileID: 0}
+    - target: {fileID: 8287396170511164119, guid: cd9616430b956694088a1ae11184d03e, type: 3}
+      propertyPath: m_ActionEvents.Array.data[15].m_ActionName
+      value: 'Platformers/Menu[/Keyboard/tab]'
+      objectReference: {fileID: 0}
+    - target: {fileID: 8287396170511164119, guid: cd9616430b956694088a1ae11184d03e, type: 3}
+      propertyPath: m_ActionEvents.Array.data[16].m_ActionName
+      value: 'Platformers/Interact[/Keyboard/e]'
+      objectReference: {fileID: 0}
+    - target: {fileID: 8491460374247478282, guid: cd9616430b956694088a1ae11184d03e, type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

@@ -662,6 +662,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 0d264424-c8ee-4476-84d2-e2dd5df20860
     m_ActionName: 'Player/Menu[/Keyboard/tab]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: c6c2c126-68c6-49a1-8c76-be4cb99d1be3
+    m_ActionName: 'Platformers/Jump[/Keyboard/w,/Keyboard/upArrow,/Keyboard/space]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 375301a4-cfcc-4b2f-9367-09d40a74248b
+    m_ActionName: 'Platformers/Move[/Keyboard/a,/Keyboard/leftArrow,/Keyboard/d,/Keyboard/rightArrow]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: e7797662-87fb-47e9-89f6-4b0ec24cb75e
+    m_ActionName: 'Platformers/Menu[/Keyboard/tab]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: f9c34eb1-636e-4726-a40a-866c46e1203d
+    m_ActionName: 'Platformers/Interact[/Keyboard/e]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -743,7 +759,7 @@ SpriteRenderer:
   m_SortingLayer: 4
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 6286595657586805340, guid: 6af69bdc0a5059646baa4fb75632d6e1, type: 3}
+  m_Sprite: {fileID: 3698072006486610548, guid: 6af69bdc0a5059646baa4fb75632d6e1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

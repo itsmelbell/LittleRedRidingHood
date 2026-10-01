@@ -4,7 +4,7 @@ using UnityEngine.UI;
 using System.Collections;
 using UnityEngine.SceneManagement;
 
-public enum RequiredItem {None, Sugar, Apple}
+public enum RequiredItem {None, Sugar, Apple, Egg}
 
 public class NPC : MonoBehaviour, IInteractable
 {
@@ -41,6 +41,7 @@ public class NPC : MonoBehaviour, IInteractable
         switch(requiredItem){
             case RequiredItem.Sugar: return GlobalHelper.hasSugar;
             case RequiredItem.Apple: return GlobalHelper.hasApple;
+            case RequiredItem.Egg: return GlobalHelper.hasEgg;
             default: return false;
         }
     }

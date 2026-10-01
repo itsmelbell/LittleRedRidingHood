@@ -11,6 +11,7 @@ public class SceneTransition : MonoBehaviour
     public static bool hasReturnPosition;
     [SerializeField] private PolygonCollider2D mapBoundry;
     CinemachineConfiner2D confiner;
+    public static bool isReturning;
 
     private void Awake()
     {
@@ -28,11 +29,13 @@ public class SceneTransition : MonoBehaviour
                 print("no position saved");
             }
             
+            isReturning = false;
             SceneManager.LoadScene(SceneToGo);
         }
     }
 
     public void ReturnToOverWorld(){
+        isReturning = true;
         SceneManager.LoadScene("OverWorld");
     }
 
