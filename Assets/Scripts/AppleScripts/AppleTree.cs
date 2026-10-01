@@ -37,6 +37,7 @@ public class AppleTree : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (PauseController.IsGamePaused) return;
         //basic movement
         Vector3 pos = transform.position;
         pos.x += speed * Time.deltaTime;

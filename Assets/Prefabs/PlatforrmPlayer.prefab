@@ -1,0 +1,104 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &7454786317503584535
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2308885285762939893, guid: cd9616430b956694088a1ae11184d03e, type: 3}
+      propertyPath: m_Name
+      value: PlatforrmPlayer
+      objectReference: {fileID: 0}
+    - target: {fileID: 3894346743055306175, guid: cd9616430b956694088a1ae11184d03e, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5206499544670477574, guid: cd9616430b956694088a1ae11184d03e, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 8307213e19b06b74881651334311009c, type: 2}
+    - target: {fileID: 6696739866721387530, guid: cd9616430b956694088a1ae11184d03e, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6696739866721387530, guid: cd9616430b956694088a1ae11184d03e, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6696739866721387530, guid: cd9616430b956694088a1ae11184d03e, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6696739866721387530, guid: cd9616430b956694088a1ae11184d03e, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6696739866721387530, guid: cd9616430b956694088a1ae11184d03e, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6696739866721387530, guid: cd9616430b956694088a1ae11184d03e, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6696739866721387530, guid: cd9616430b956694088a1ae11184d03e, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6696739866721387530, guid: cd9616430b956694088a1ae11184d03e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6696739866721387530, guid: cd9616430b956694088a1ae11184d03e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6696739866721387530, guid: cd9616430b956694088a1ae11184d03e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2308885285762939893, guid: cd9616430b956694088a1ae11184d03e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5467340703265937016}
+  m_SourcePrefab: {fileID: 100100000, guid: cd9616430b956694088a1ae11184d03e, type: 3}
+--- !u!1 &5151685073996145378 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2308885285762939893, guid: cd9616430b956694088a1ae11184d03e, type: 3}
+  m_PrefabInstance: {fileID: 7454786317503584535}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &5467340703265937016
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5151685073996145378}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e981c015ffe7ab4793dec73e857d3d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlatformerMovement
+  jumpPower: 13
+  maxJumps: 2
+  groundCheckPos: {fileID: 0}
+  groundCheckSize: {x: 0.05, y: 0.05}
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  baseGravity: 3
+  maxFallSpeed: 7
+  fallSpeedMultiplier: 2
+  wallCheckPos: {fileID: 0}
+  wallCheckSize: {x: 0.05, y: 0.05}
+  wallLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  wallSlideSpeed: 2
+  wallJumpPower: {x: 5, y: 13}

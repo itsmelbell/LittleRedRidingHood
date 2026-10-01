@@ -29,8 +29,12 @@ public class Basket : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        horizontalInput = 0f;    
+        if(PauseController.IsGamePaused){
+            horizontalInput = 0f;  
+            return; 
+        } 
               
+        horizontalInput = 0f; 
  
         if(Keyboard.current.leftArrowKey.isPressed || Keyboard.current.aKey.isPressed){
             horizontalInput = -1f;
