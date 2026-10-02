@@ -3,8 +3,9 @@ using TMPro;
 using UnityEngine.UI;
 using System.Collections;
 using UnityEngine.SceneManagement;
+using UnityEngine.Events;
 
-public enum RequiredItem {None, Sugar, Apple, Egg}
+public enum RequiredItem {None, Sugar, Apple, Egg, All}
 
 public class NPC : MonoBehaviour, IInteractable
 {
@@ -14,6 +15,9 @@ public class NPC : MonoBehaviour, IInteractable
 
 
     private DialougeController dialougeUI;
+
+    [SerializeField] private UnityEvent dialougeFinish;
+    private NPCDialouge activeData;
 
 
     private int dialougeIndex;
@@ -42,28 +46,29 @@ public class NPC : MonoBehaviour, IInteractable
             case RequiredItem.Sugar: return GlobalHelper.hasSugar;
             case RequiredItem.Apple: return GlobalHelper.hasApple;
             case RequiredItem.Egg: return GlobalHelper.hasEgg;
+            case RequiredItem.All: return GlobalHelper.hasAll();
             default: return false;
         }
     }
 
     private NPCDialouge GetCurrentDialouge(){
-        if(HasRequiredItem()){
+        if(HasRequiredItem() && itemDialouge != null){
             return itemDialouge;
         } 
         return dialougeData;
     }
 
     void StartDialouge(){
-        dialougeData = GetCurrentDialouge();
+        activeData = GetCurrentDialouge();
 
-        if(dialougeData == null){
+        if(activeData == null){
             return;
         }
 
         isDialougeActive = true;
         dialougeIndex = 0;
 
-        dialougeUI.SetNPCInfo(dialougeData.npcName);
+        dialougeUI.SetNPCInfo(activeData.npcName);
         dialougeUI.ShowDialouge(true);
 
         PauseController.SetPause(true);
@@ -75,27 +80,27 @@ public class NPC : MonoBehaviour, IInteractable
         if(isTyping){
             // show full line
             StopAllCoroutines();
-            dialougeUI.SetDialougeText(dialougeData.dialougeLines[dialougeIndex]);
+            dialougeUI.SetDialougeText(activeData.dialougeLines[dialougeIndex]);
             isTyping = false;
         } 
 
         dialougeUI.ClearChoices();
 
         //is end dialouge lines checked
-        if(dialougeData.endDialougeLines.Length > dialougeIndex && dialougeData.endDialougeLines[dialougeIndex]){
+        if(activeData.endDialougeLines.Length > dialougeIndex && activeData.endDialougeLines[dialougeIndex]){
             EndDialouge();
             return;
         }
 
         //check if there are choices set
-        foreach(DialougeChoice dialougeChoice in dialougeData.choices){
+        foreach(DialougeChoice dialougeChoice in activeData.choices){
             if(dialougeChoice.dialougeIndex == dialougeIndex){
                 DisplayChoices(dialougeChoice);
                 return;
             }
         }
 
-        if(++dialougeIndex < dialougeData.dialougeLines.Length){
+        if(++dialougeIndex < activeData.dialougeLines.Length){
             DisplayCurrentLine();
         } else {
             EndDialouge();
@@ -105,15 +110,15 @@ public class NPC : MonoBehaviour, IInteractable
     IEnumerator TypeLine(){
         isTyping = true;
         dialougeUI.SetDialougeText("");
-        foreach(char letter in dialougeData.dialougeLines[dialougeIndex]){
+        foreach(char letter in activeData.dialougeLines[dialougeIndex]){
             dialougeUI.SetDialougeText(dialougeUI.dialougeText.text += letter);
-            yield return new WaitForSeconds(dialougeData.typingSpeed);
+            yield return new WaitForSeconds(activeData.typingSpeed);
         }
 
         isTyping = false;
 
-        if(dialougeData.autoProgressLines.Length > dialougeIndex && dialougeData.autoProgressLines[dialougeIndex]){
-            yield return new WaitForSeconds(dialougeData.autoProgressDelay);
+        if(activeData.autoProgressLines.Length > dialougeIndex && activeData.autoProgressLines[dialougeIndex]){
+            yield return new WaitForSeconds(activeData.autoProgressDelay);
             NextLine();
         }
     }
@@ -137,10 +142,15 @@ public class NPC : MonoBehaviour, IInteractable
     }
 
     public void EndDialouge(){
+        bool wasitemDialouge = itemDialouge != null && activeData == itemDialouge;
         StopAllCoroutines();
         isDialougeActive = false;
         dialougeUI.SetDialougeText("");
         dialougeUI.ShowDialouge(false);
         PauseController.SetPause(false);
+
+        if(wasitemDialouge){
+            dialougeFinish?.Invoke();
+        }
     }
 }

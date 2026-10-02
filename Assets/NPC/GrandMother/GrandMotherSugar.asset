@@ -15,11 +15,18 @@ MonoBehaviour:
   npcName: Grandmother
   npcPortrait: {fileID: 0}
   dialougeLines:
-  - Just a few more ingredients, dear!
+  - How's the ingredient gathering going, dear?
+  - Oh isn't that just marvelous! Pass them here, thank you.
+  - Oh my.
   typingSpeed: 0.05
   voiceSound: {fileID: 0}
   voicePitch: 1
-  autoProgressLines: 
-  endDialougeLines: 
+  autoProgressLines: 00
+  endDialougeLines: 000101
   autoProgressDelay: 1.5
-  choices: []
+  choices:
+  - dialougeIndex: 0
+    choices:
+    - I've got them all!
+    - I don't wanna anymore
+    nextDialougeIndexes: 0100000002000000

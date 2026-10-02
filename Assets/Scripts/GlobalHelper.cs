@@ -18,6 +18,14 @@ public static class GlobalHelper
         hasApple = accquired;
     }
 
+    public static bool hasAll(){
+        if(hasSugar && hasEgg && hasApple){
+            return true;
+        } else {
+            return false;
+        }
+    }
+
     public static string GenerateUniqueID(GameObject obj){
         return $"{obj.scene.name}_{obj.transform.position.x}_{obj.transform.position.y}";
     }
