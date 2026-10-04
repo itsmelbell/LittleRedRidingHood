@@ -12,7 +12,9 @@ public class MenuController : MonoBehaviour
 
     public void onOpenMenu(InputAction.CallbackContext context){
         if (context.performed){
+            print("menu up");
             if(!menuCanvas.activeSelf && PauseController.IsGamePaused){
+                print("returned");
                 return;
             }
             menuCanvas.SetActive(!menuCanvas.activeSelf);

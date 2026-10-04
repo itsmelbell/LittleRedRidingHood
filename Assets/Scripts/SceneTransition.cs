@@ -34,6 +34,10 @@ public class SceneTransition : MonoBehaviour
         }
     }
 
+    public void firstSpawn(){
+        SceneManager.LoadScene("OverWorld");
+    }
+
     public void ReturnToOverWorld(){
         isReturning = true;
         SceneManager.LoadScene("OverWorld");

@@ -45,7 +45,11 @@ public class PlatformerMovement : MonoBehaviour
     }
 
     private void Update(){
-        
+         if(PauseController.IsGamePaused){
+            rb.linearVelocity = Vector2.zero;
+            return;
+        }
+
         GroundCheck();
         Gravity();
         WallSlide();
