@@ -21,4 +21,9 @@ public class MenuController : MonoBehaviour
             PauseController.SetPause(menuCanvas.activeSelf);
         }
     }
+
+    public void closeMenu(){
+        menuCanvas.SetActive(false);
+        PauseController.SetPause(false);
+    }
 }

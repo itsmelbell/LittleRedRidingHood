@@ -3,6 +3,8 @@ using UnityEngine.SceneManagement;
 
 public class Egg : MonoBehaviour, IInteractable
 {
+    public GameObject infoPanel;
+
     public void Interact(){
         if(!CanInteract()) return;
         collectItem();
@@ -14,6 +16,11 @@ public class Egg : MonoBehaviour, IInteractable
 
     public void collectItem(){
         GlobalHelper.getEgg(true);
-        FindAnyObjectByType<SceneTransition>().ReturnToOverWorld();   
+        infoPanel.SetActive(true);     
+    }
+
+    public void endMinigame(){
+        infoPanel.SetActive(false);
+        FindAnyObjectByType<SceneTransition>().ReturnToOverWorld();
     }
 }

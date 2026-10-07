@@ -29,8 +29,10 @@ public class AppleTree : MonoBehaviour
     }
 
     void DropApple(){
-        GameObject apple= Instantiate<GameObject>(applePrefab);
-        apple.transform.position = transform.position;
+        if (!PauseController.IsGamePaused){
+            GameObject apple = Instantiate<GameObject>(applePrefab);
+            apple.transform.position = transform.position;
+        }
         Invoke("DropApple", appleDropDelay);
     }
 

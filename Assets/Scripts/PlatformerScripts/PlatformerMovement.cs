@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Events;
 
 public class PlatformerMovement : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class PlatformerMovement : MonoBehaviour
     private float moveSpeed = 5f;
     float horizontalMovement;
 
+    //jump
     public float jumpPower = 10f;
     public int maxJumps = 2;
     int jumpsRemaining;
@@ -39,9 +41,23 @@ public class PlatformerMovement : MonoBehaviour
     float wallJumpTimer;
     public Vector2 wallJumpPower = new Vector2(5f, 13f);
 
+    //lives
+    public int maxLives = 3;
+    private int livesLeft;
+    [SerializeField] private LiveCounter liveCounter;
+    [SerializeField] GameObject failScreen;
+
     private void Awake(){
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+        livesLeft = maxLives;
+        liveCounter.SetLives(livesLeft);
+
+        if (liveCounter == null){
+            GameObject liveObject = GameObject.Find("LiveCounter");
+            if (liveObject != null)
+                liveCounter = liveObject.GetComponent<LiveCounter>();
+        }   
     }
 
     private void Update(){
@@ -166,6 +182,31 @@ public class PlatformerMovement : MonoBehaviour
         Gizmos.DrawWireCube(groundCheckPos.position, groundCheckSize);
         Gizmos.color = Color.blue;
         Gizmos.DrawWireCube(wallCheckPos.position, wallCheckSize);
+    }
+
+    public void LoseLife(){
+        livesLeft--;
+        liveCounter.SetLives(livesLeft);
+        if (livesLeft <= 0){
+            onOutOfLives();
+        }
+    }
+
+    public int getLives(){
+        return livesLeft;
+    }
+
+    public void resetLives(){
+        livesLeft = maxLives;
+        liveCounter.SetLives(livesLeft);
+        rb.transform.position = new Vector3(0f, 2f, 0f);
+        PauseController.SetPause(false);
+        failScreen.SetActive(false);
+    }
+
+    public void onOutOfLives(){
+        PauseController.SetPause(true);
+        failScreen.SetActive(true);
     }
 }
 

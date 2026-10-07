@@ -15,6 +15,6 @@ public class ScoreCounter : MonoBehaviour {
     }
 
     void Update() {
-       uiText.text = score.ToString( "#,0" ); // This 0 is a zero!              // e
+       uiText.text = "x " + score.ToString( "#,0" ); // This 0 is a zero!              // e
     }
 }

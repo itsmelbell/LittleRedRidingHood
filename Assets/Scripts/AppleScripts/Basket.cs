@@ -11,6 +11,10 @@ public class Basket : MonoBehaviour
     [SerializeField] private ScoreCounter scoreCounter;
     [SerializeField] private float leftEdge = -8f;
     [SerializeField] private float rightEdge = 8f;
+    [SerializeField] private MinigameTimer timer;
+    private bool hasWon;
+    public GameObject infoPanel;
+    public GameObject loseScreen;
 
     private Rigidbody2D rb;
     private float horizontalInput;
@@ -54,19 +58,40 @@ public class Basket : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Apple"))
-        {
-            Destroy(collision.gameObject);
+        if (!collision.gameObject.CompareTag("Apple")) return;
+        
+        Destroy(collision.gameObject);
 
-            if(scoreCounter != null){
-                scoreCounter.score += 1;
-            }
+        if(scoreCounter == null | hasWon) return;
+        
+        scoreCounter.score += 1;
+        
 
-            if(scoreCounter.score >= 3){
-                GlobalHelper.getApple(true);
-                print("got apple");
-                FindAnyObjectByType<SceneTransition>().ReturnToOverWorld();
-            }
+        if(scoreCounter.score >= 10){
+            hasWon = true;
+            timer.Stop();
+            GlobalHelper.getApple(true);
+            infoPanel.SetActive(true);
         }
+        
+    }
+
+    public void endMinigame(){
+        infoPanel.SetActive(false);
+        FindAnyObjectByType<SceneTransition>().ReturnToOverWorld();
+    }
+
+    public void lost(){
+        PauseController.SetPause(true);
+        loseScreen.SetActive(true);
+    }
+
+    public void reset(){
+        PauseController.SetPause(false);
+        loseScreen.SetActive(false);
+        scoreCounter.score = 0;
+        hasWon = false;
+        timer.ResetTimer();
+        rb.transform.position = new Vector3(0.6f, -12.7f, 0f);
     }
 }

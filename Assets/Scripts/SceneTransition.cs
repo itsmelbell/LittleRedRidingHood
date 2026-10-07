@@ -36,6 +36,17 @@ public class SceneTransition : MonoBehaviour
 
     public void firstSpawn(){
         SceneManager.LoadScene("OverWorld");
+        GlobalHelper.getSugar(false);
+        GlobalHelper.getEgg(false);
+        GlobalHelper.getApple(false);
+    }
+
+    public void restartGame(){
+        SceneManager.LoadScene("StartScreen");
+        GlobalHelper.getSugar(false);
+        GlobalHelper.getEgg(false);
+        GlobalHelper.getApple(false);
+        PauseController.SetPause(false);
     }
 
     public void ReturnToOverWorld(){
