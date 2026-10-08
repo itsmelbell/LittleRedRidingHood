@@ -11,11 +11,13 @@ public class MenuController : MonoBehaviour
         menuCanvas.SetActive(false);
     }
 
+    //when tab is pressed, open menu if not already opened
+    //close menu otherwise
     public void onOpenMenu(InputAction.CallbackContext context){
         if (context.performed){
-            print("menu up");
+            //print("menu up");
             if(!menuCanvas.activeSelf && PauseController.IsGamePaused){
-                print("returned");
+                //print("returned");
                 return;
             }
             menuCanvas.SetActive(!menuCanvas.activeSelf);

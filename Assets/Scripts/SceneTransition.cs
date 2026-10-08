@@ -18,7 +18,8 @@ public class SceneTransition : MonoBehaviour
         confiner = FindAnyObjectByType<CinemachineConfiner2D>();
     }
 
-
+    //upon entering designated area, will flag whether it's a return point or not
+    //keep track of save position if there is not one
     private void OnTriggerEnter2D(Collider2D collision){
         if (collision.gameObject.CompareTag("Player")){
             if(returnPoint != null){
@@ -35,6 +36,7 @@ public class SceneTransition : MonoBehaviour
         }
     }
 
+    //called by button click on homescreen
     public void firstSpawn(){
         SoundEffectManager.Play("Enter");
         SceneManager.LoadScene("OverWorld");
@@ -43,6 +45,7 @@ public class SceneTransition : MonoBehaviour
         GlobalHelper.getApple(false);
     }
 
+    //called by button click in menu, end screen
     public void restartGame(){
         SceneManager.LoadScene("StartScreen");
         SoundEffectManager.Play("Enter");
@@ -52,12 +55,14 @@ public class SceneTransition : MonoBehaviour
         PauseController.SetPause(false);
     }
 
+    //after each minigame
     public void ReturnToOverWorld(){
         isReturning = true;
         SceneManager.LoadScene("OverWorld");
         SoundEffectManager.Play("Enter");
     }
 
+    //if the camera needth be changed
     public void SetCamera(){
         confiner.BoundingShape2D = mapBoundry;
         confiner.InvalidateBoundingShapeCache();

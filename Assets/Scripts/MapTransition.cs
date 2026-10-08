@@ -24,7 +24,7 @@ public class MapTransition : MonoBehaviour
     }
    }
 
-    //move player
+    //move player so they arent bouncing back and forth between boundry
    private void UpdatePlayerPosition(GameObject player){
     Vector3 newPos = player.transform.position;
 

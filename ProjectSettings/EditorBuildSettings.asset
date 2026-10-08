@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/Scenes/SampleScene.unity
     guid: 8c9cfa26abfee488c85f1582747f6a02
   - enabled: 1
+    path: Assets/Scenes/StartScreen.unity
+    guid: a2fda371776c982479528ab224fb3a0f
+  - enabled: 1
     path: Assets/Scenes/OverWorld.unity
     guid: 9072d81a337d14b4ca694a7103915ab3
   - enabled: 1
@@ -20,8 +23,5 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/PlatformerLevel.unity
     guid: c8de864470a03fe4a8b0036289c7dea3
-  - enabled: 1
-    path: Assets/Scenes/StartScreen.unity
-    guid: a2fda371776c982479528ab224fb3a0f
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}

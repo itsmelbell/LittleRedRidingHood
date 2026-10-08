@@ -1779,7 +1779,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ddb69552bd782c418f2bae95b29f9d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  timeLimit: 45
+  timeLimit: 30
   timerText: {fileID: 1960751192}
   startOnAwake: 0
   onTimeUp:
@@ -3813,10 +3813,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AppleTree
   applePrefab: {fileID: 1835474302466777625, guid: fa94df63c7a8e63468102597b1c432bd, type: 3}
-  speed: 10
+  speed: 20
   leftAndRightEdge: 20
   changeDirChance: 0.002
-  appleDropDelay: 4
+  appleDropDelay: 2.5
 --- !u!1 &1932973812
 GameObject:
   m_ObjectHideFlags: 0

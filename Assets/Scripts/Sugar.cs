@@ -17,6 +17,7 @@ public class Sugar : MonoBehaviour, IInteractable
         return true;
     }
 
+    //when item is collected, stop timer and pull up end screen
     public void collectItem(){
         collected = true;
         GlobalHelper.getSugar(true);
@@ -27,6 +28,7 @@ public class Sugar : MonoBehaviour, IInteractable
         infoPanel.SetActive(true);     
     }
 
+    //take down end screen, return to overworld
     public void endMinigame(){
         infoPanel.SetActive(false);
         FindAnyObjectByType<SceneTransition>().ReturnToOverWorld();

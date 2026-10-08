@@ -19,13 +19,13 @@ public class MinigameTimer : MonoBehaviour
         UpdateText();
     }
 
+    //timer running 
     private void Update(){
         if (!running || PauseController.IsGamePaused) return;
 
         timeLeft -= Time.deltaTime;
 
-        if (timeLeft <= 0f)
-        {
+        if (timeLeft <= 0f){
             timeLeft = 0f;
             running = false;
             UpdateText();
@@ -36,11 +36,13 @@ public class MinigameTimer : MonoBehaviour
         UpdateText();
     }
 
+    //keeping the text updated with time
     private void UpdateText(){
         int seconds = Mathf.CeilToInt(timeLeft);
         timerText.text = $"{seconds / 60}:{seconds % 60:00}";
     }
 
+    //resetting timer
     public void ResetTimer(){
         timeLeft = timeLimit;
         running = true;

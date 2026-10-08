@@ -1,7 +1,7 @@
 using UnityEngine;
 
+//npc information
 [CreateAssetMenu(fileName = "NewNPCDialouge", menuName = "NPC Dialouge")]
-
 public class NPCDialouge: ScriptableObject
 {
     public string npcName;

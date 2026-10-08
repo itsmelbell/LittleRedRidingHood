@@ -114,8 +114,10 @@ public class NPC : MonoBehaviour, IInteractable
         isTyping = true;
         dialougeUI.SetDialougeText("");
         int i = 0;
+        //letter by letter typing
         foreach(char letter in activeData.dialougeLines[dialougeIndex]){
             dialougeUI.SetDialougeText(dialougeUI.dialougeText.text += letter);
+            //so the sound effects dont sound like a machine gun
             if(letter != ' ' && i%2 == 0){
                 SoundEffectManager.PlayVoice(activeData.voiceSound, activeData.voicePitch);
             }
@@ -139,6 +141,7 @@ public class NPC : MonoBehaviour, IInteractable
         }
     }
 
+    //option is picked, set the dialouge index to the appropriate response
     void ChooseOption(int nextIndex){
         dialougeIndex = nextIndex;
         dialougeUI.ClearChoices();
@@ -150,6 +153,7 @@ public class NPC : MonoBehaviour, IInteractable
         StartCoroutine(TypeLine());
     }
 
+    //stops dialouge, closes all windows
     public void EndDialouge(){
         bool wasitemDialouge = itemDialouge != null && activeData == itemDialouge;
         StopAllCoroutines();
