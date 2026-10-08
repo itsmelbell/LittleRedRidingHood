@@ -1,6 +1,7 @@
 using UnityEngine;
 using Unity.Cinemachine;
 
+//Within the overworld, switch from one area to the next
 public class MapTransition : MonoBehaviour
 {
    [SerializeField] PolygonCollider2D mapBoundry;
@@ -14,6 +15,7 @@ public class MapTransition : MonoBehaviour
     confiner = FindAnyObjectByType<CinemachineConfiner2D>();
    }
 
+    //walk into a map boundry, change camera
    private void OnTriggerEnter2D(Collider2D collision){
     if (collision.gameObject.CompareTag("Player")){
         confiner.BoundingShape2D = mapBoundry;
@@ -22,6 +24,7 @@ public class MapTransition : MonoBehaviour
     }
    }
 
+    //move player
    private void UpdatePlayerPosition(GameObject player){
     Vector3 newPos = player.transform.position;
 

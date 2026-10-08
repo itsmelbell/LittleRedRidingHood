@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+//menu by clicking tab
 public class MenuController : MonoBehaviour
 {
     public GameObject menuCanvas;
@@ -22,6 +23,7 @@ public class MenuController : MonoBehaviour
         }
     }
 
+    //called by button click, when restarting a minigame
     public void closeMenu(){
         menuCanvas.SetActive(false);
         PauseController.SetPause(false);

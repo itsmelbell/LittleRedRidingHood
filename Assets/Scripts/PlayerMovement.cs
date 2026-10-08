@@ -9,6 +9,8 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody2D rb;
     private Vector2 moveInput;
     private Animator animator;
+    private bool playingFootsteps = false;
+    public float footstepSpeed = .5f;
 
     public GameObject loseScreen;
     [SerializeField] private MinigameTimer timer; 
@@ -30,10 +32,18 @@ public class PlayerMovement : MonoBehaviour
         if(PauseController.IsGamePaused){
             rb.linearVelocity = Vector2.zero;
             animator.SetBool("isWalking", false);
+            StopFootsteps();
             return;
         }
         rb.linearVelocity = moveInput * moveSpeed;
         animator.SetBool("isWalking", rb.linearVelocity.magnitude > 0);
+
+        //sound effts
+        if(rb.linearVelocity.magnitude > 0 && !playingFootsteps){
+            StartFootsteps();
+        } else if(rb.linearVelocity.magnitude == 0){
+            StopFootsteps();
+        }
     }
 
     public void Move(InputAction.CallbackContext context)
@@ -48,10 +58,28 @@ public class PlayerMovement : MonoBehaviour
         animator.SetFloat("InputY", moveInput.y);
     }
 
+    //for sound effects
+    void StopFootsteps(){
+        playingFootsteps = false;
+        CancelInvoke(nameof(PlayFootstep));
+    }
+
+    //for sound effects
+    void StartFootsteps(){
+        playingFootsteps = true;
+        InvokeRepeating(nameof(PlayFootstep), 0f, footstepSpeed);
+    }   
+
+    //for sound effects
+    void PlayFootstep(){
+        SoundEffectManager.Play("Footstep");
+    }
+
     //for bee level, when timer runs out       
     public void lost(){
         PauseController.SetPause(true);
         loseScreen.SetActive(true);
+        SoundEffectManager.Play("Fail");
     }
 
     //for bee level, called by button click

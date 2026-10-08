@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using TMPro;
 
+//for bee and apple level
 public class MinigameTimer : MonoBehaviour
 {
     [SerializeField] private float timeLimit = 30f;
@@ -12,15 +13,13 @@ public class MinigameTimer : MonoBehaviour
     private float timeLeft;
     private bool running;
 
-    private void Start()
-    {
+    private void Start(){
         timeLeft = timeLimit;
         running = startOnAwake;
         UpdateText();
     }
 
-    private void Update()
-    {
+    private void Update(){
         if (!running || PauseController.IsGamePaused) return;
 
         timeLeft -= Time.deltaTime;
@@ -37,8 +36,7 @@ public class MinigameTimer : MonoBehaviour
         UpdateText();
     }
 
-    private void UpdateText()
-    {
+    private void UpdateText(){
         int seconds = Mathf.CeilToInt(timeLeft);
         timerText.text = $"{seconds / 60}:{seconds % 60:00}";
     }

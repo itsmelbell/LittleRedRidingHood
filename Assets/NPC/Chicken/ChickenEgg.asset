@@ -15,10 +15,10 @@ MonoBehaviour:
   npcName: Chicken
   npcPortrait: {fileID: 0}
   dialougeLines:
-  - ah egg
+  - Cluck (ahh egg)
   typingSpeed: 0.05
-  voiceSound: {fileID: 0}
-  voicePitch: 1
+  voiceSound: {fileID: 8300000, guid: 0401c24160e5fd347a09fe7a9c1c6b99, type: 3}
+  voicePitch: 0.8
   autoProgressLines: 00
   endDialougeLines: 
   autoProgressDelay: 1.5

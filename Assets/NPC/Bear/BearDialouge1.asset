@@ -21,8 +21,8 @@ MonoBehaviour:
   - Righty then brave soul, go catch 10 apples!
   - Alrighty then.
   typingSpeed: 0.05
-  voiceSound: {fileID: 0}
-  voicePitch: 1
+  voiceSound: {fileID: 8300000, guid: 339f3194a1872c54fa6fafe5d39016c8, type: 3}
+  voicePitch: 0.3
   autoProgressLines: 0101010000
   endDialougeLines: 0000000101
   autoProgressDelay: 1.5

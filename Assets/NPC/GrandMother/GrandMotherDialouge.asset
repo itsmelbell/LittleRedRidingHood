@@ -23,8 +23,8 @@ MonoBehaviour:
     to the right.
   - the fucking new gen will kill us all.
   typingSpeed: 0.05
-  voiceSound: {fileID: 0}
-  voicePitch: 1
+  voiceSound: {fileID: 8300000, guid: 33f97c3d93f32874aa88064846666705, type: 3}
+  voicePitch: 0.7
   autoProgressLines: 0101010100
   endDialougeLines: 000000000101
   autoProgressDelay: 1.5

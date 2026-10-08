@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
-//copied from apple picker, but this is how player mover
+//copied from apple picker, but this is how player moves
 public class Basket : MonoBehaviour
 {
     [SerializeField] private float moveSpeed = 8f;
@@ -61,6 +61,7 @@ public class Basket : MonoBehaviour
         if (!collision.gameObject.CompareTag("Apple")) return;
         
         Destroy(collision.gameObject);
+        SoundEffectManager.Play("Apple");
 
         if(scoreCounter == null | hasWon) return;
         
@@ -71,6 +72,7 @@ public class Basket : MonoBehaviour
             hasWon = true;
             timer.Stop();
             GlobalHelper.getApple(true);
+            SoundEffectManager.Play("Ingredient");
             infoPanel.SetActive(true);
         }
         
@@ -84,6 +86,7 @@ public class Basket : MonoBehaviour
     public void lost(){
         PauseController.SetPause(true);
         loseScreen.SetActive(true);
+        SoundEffectManager.Play("Fail");
     }
 
     public void reset(){

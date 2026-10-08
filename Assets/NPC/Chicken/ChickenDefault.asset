@@ -15,12 +15,18 @@ MonoBehaviour:
   npcName: Chicken
   npcPortrait: {fileID: 0}
   dialougeLines:
-  - Cluck cluck egg?
-  - right behind me cluck click
+  - Cluck cluck? (What's up)
+  - Cluck cluck cluck. (right behind me)
+  - Cluck. (very well).
   typingSpeed: 0.05
-  voiceSound: {fileID: 0}
-  voicePitch: 1
-  autoProgressLines: 0100
-  endDialougeLines: 
+  voiceSound: {fileID: 8300000, guid: 0401c24160e5fd347a09fe7a9c1c6b99, type: 3}
+  voicePitch: 0.8
+  autoProgressLines: 010000
+  endDialougeLines: 000101
   autoProgressDelay: 1.5
-  choices: []
+  choices:
+  - dialougeIndex: 0
+    choices:
+    - Where can I find eggs?
+    - Cluck (nothing).
+    nextDialougeIndexes: 0100000002000000

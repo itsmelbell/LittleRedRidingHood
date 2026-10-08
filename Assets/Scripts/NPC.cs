@@ -5,20 +5,21 @@ using System.Collections;
 using UnityEngine.SceneManagement;
 using UnityEngine.Events;
 
+//NPC dialouge
 public enum RequiredItem {None, Sugar, Apple, Egg, All}
 
 public class NPC : MonoBehaviour, IInteractable
 {
     public NPCDialouge dialougeData;
+
+    //dialouge can change depending what ingredients player possess
     public NPCDialouge itemDialouge;
     [SerializeField] private RequiredItem requiredItem;
-
 
     private DialougeController dialougeUI;
 
     [SerializeField] private UnityEvent dialougeFinish;
     private NPCDialouge activeData;
-
 
     private int dialougeIndex;
     private bool isTyping, isDialougeActive;
@@ -41,6 +42,7 @@ public class NPC : MonoBehaviour, IInteractable
         }
     }
 
+    //check for what ingredent player has, returns the appropriate dialouge
     private bool HasRequiredItem(){
         switch(requiredItem){
             case RequiredItem.Sugar: return GlobalHelper.hasSugar;
@@ -82,6 +84,7 @@ public class NPC : MonoBehaviour, IInteractable
             StopAllCoroutines();
             dialougeUI.SetDialougeText(activeData.dialougeLines[dialougeIndex]);
             isTyping = false;
+            return;
         } 
 
         dialougeUI.ClearChoices();
@@ -110,8 +113,13 @@ public class NPC : MonoBehaviour, IInteractable
     IEnumerator TypeLine(){
         isTyping = true;
         dialougeUI.SetDialougeText("");
+        int i = 0;
         foreach(char letter in activeData.dialougeLines[dialougeIndex]){
             dialougeUI.SetDialougeText(dialougeUI.dialougeText.text += letter);
+            if(letter != ' ' && i%2 == 0){
+                SoundEffectManager.PlayVoice(activeData.voiceSound, activeData.voicePitch);
+            }
+            i++;
             yield return new WaitForSeconds(activeData.typingSpeed);
         }
 
@@ -123,6 +131,7 @@ public class NPC : MonoBehaviour, IInteractable
         }
     }
 
+    //choice buttons
     void DisplayChoices(DialougeChoice choice){
         for(int i = 0; i < choice.choices.Length; i++){
             int nextIndex = choice.nextDialougeIndexes[i];
@@ -149,6 +158,7 @@ public class NPC : MonoBehaviour, IInteractable
         dialougeUI.ShowDialouge(false);
         PauseController.SetPause(false);
 
+        //for game end instance
         if(wasitemDialouge){
             dialougeFinish?.Invoke();
         }

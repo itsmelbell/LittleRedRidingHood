@@ -17,8 +17,8 @@ MonoBehaviour:
   dialougeLines:
   - Buzz buzz good job collecting the sugar
   typingSpeed: 0.05
-  voiceSound: {fileID: 0}
-  voicePitch: 1
+  voiceSound: {fileID: 8300000, guid: 133cdd366935ea041bb9a51879a1a52f, type: 3}
+  voicePitch: 0.7
   autoProgressLines: 00
   endDialougeLines: 
   autoProgressDelay: 1.5

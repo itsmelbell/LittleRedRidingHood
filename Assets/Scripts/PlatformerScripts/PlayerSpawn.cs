@@ -1,5 +1,6 @@
 using UnityEngine;
 
+//bug fix script for platform player not spawning in the correct spot
 public class PlayerSpawn : MonoBehaviour
 {
     
@@ -7,7 +8,7 @@ public class PlayerSpawn : MonoBehaviour
     {
         if (!SceneTransition.isReturning) return;
         
-            print("has return position");
+            //print("has return position");
             transform.position = SceneTransition.returnPosition;
             SceneTransition.hasReturnPosition = false;
             SceneTransition.isReturning = false;

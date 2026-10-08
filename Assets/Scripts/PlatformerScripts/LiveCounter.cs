@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
+//Text to display player lives
 public class LiveCounter : MonoBehaviour {
     [SerializeField] private TMP_Text livesText;                                                        // c
 

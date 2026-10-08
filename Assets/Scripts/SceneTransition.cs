@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using Unity.Cinemachine;
 
-
+//moving from one minigame to another
 public class SceneTransition : MonoBehaviour
 {
     [SerializeField] private string SceneToGo;
@@ -30,11 +30,13 @@ public class SceneTransition : MonoBehaviour
             }
             
             isReturning = false;
+            SoundEffectManager.Play("Enter");
             SceneManager.LoadScene(SceneToGo);
         }
     }
 
     public void firstSpawn(){
+        SoundEffectManager.Play("Enter");
         SceneManager.LoadScene("OverWorld");
         GlobalHelper.getSugar(false);
         GlobalHelper.getEgg(false);
@@ -43,6 +45,7 @@ public class SceneTransition : MonoBehaviour
 
     public void restartGame(){
         SceneManager.LoadScene("StartScreen");
+        SoundEffectManager.Play("Enter");
         GlobalHelper.getSugar(false);
         GlobalHelper.getEgg(false);
         GlobalHelper.getApple(false);
@@ -52,6 +55,7 @@ public class SceneTransition : MonoBehaviour
     public void ReturnToOverWorld(){
         isReturning = true;
         SceneManager.LoadScene("OverWorld");
+        SoundEffectManager.Play("Enter");
     }
 
     public void SetCamera(){

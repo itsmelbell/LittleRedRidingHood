@@ -19,8 +19,8 @@ MonoBehaviour:
   - Oh isn't that just marvelous! Pass them here.
   - Thank you so much for playing!
   typingSpeed: 0.05
-  voiceSound: {fileID: 0}
-  voicePitch: 1
+  voiceSound: {fileID: 8300000, guid: 33f97c3d93f32874aa88064846666705, type: 3}
+  voicePitch: 0.7
   autoProgressLines: 00
   endDialougeLines: 000001
   autoProgressDelay: 1.5

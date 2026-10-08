@@ -1,12 +1,13 @@
 using UnityEngine;
 
+//displayed at the start of each minigame
 public class GameInstructions : MonoBehaviour
 {
     public GameObject infoPanel;
     [SerializeField] private MinigameTimer timer;
     private bool isUp;
 
-    //start of each minigame, should should
+    //start of each minigame, should be up
     void Start(){
         isUp = true;
         PauseController.SetPause(true);

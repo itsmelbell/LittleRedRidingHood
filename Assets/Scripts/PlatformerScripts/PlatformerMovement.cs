@@ -2,8 +2,8 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Events;
 
-public class PlatformerMovement : MonoBehaviour
-{
+//Movement for platformer level
+public class PlatformerMovement : MonoBehaviour{
 
     private Rigidbody2D rb;
     private Animator animator;
@@ -47,6 +47,10 @@ public class PlatformerMovement : MonoBehaviour
     [SerializeField] private LiveCounter liveCounter;
     [SerializeField] GameObject failScreen;
 
+    //sounds
+    private bool playingFootsteps = false;
+    public float footstepSpeed = .5f;
+
     private void Awake(){
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
@@ -63,6 +67,7 @@ public class PlatformerMovement : MonoBehaviour
     private void Update(){
          if(PauseController.IsGamePaused){
             rb.linearVelocity = Vector2.zero;
+            StopFootsteps();
             return;
         }
 
@@ -80,8 +85,15 @@ public class PlatformerMovement : MonoBehaviour
         animator.SetFloat("magnitude", rb.linearVelocity.magnitude);
         animator.SetBool("isWallSliding", isWallSliding);
 
+        //sound effects
+        if(rb.linearVelocity.magnitude > 0 && !playingFootsteps && isGrounded){
+            StartFootsteps();
+        } else if(rb.linearVelocity.magnitude == 0 || !isGrounded){
+            StopFootsteps();
+        }
     }
 
+    //when falling, gravity is lighter
     private void Gravity(){
         if(rb.linearVelocity.y < 0){
             rb.gravityScale = baseGravity * fallSpeedMultiplier;
@@ -168,6 +180,7 @@ public class PlatformerMovement : MonoBehaviour
         return Physics2D.OverlapBox(wallCheckPos.position, wallCheckSize, 0, wallLayer);
     }
 
+    //for the sprite
     private void flip(){
         if(isFacingRight && horizontalMovement < 0 ||!isFacingRight && horizontalMovement > 0){
             isFacingRight = !isFacingRight;
@@ -184,6 +197,7 @@ public class PlatformerMovement : MonoBehaviour
         Gizmos.DrawWireCube(wallCheckPos.position, wallCheckSize);
     }
 
+    //keep track of lives
     public void LoseLife(){
         livesLeft--;
         liveCounter.SetLives(livesLeft);
@@ -207,6 +221,22 @@ public class PlatformerMovement : MonoBehaviour
     public void onOutOfLives(){
         PauseController.SetPause(true);
         failScreen.SetActive(true);
+        SoundEffectManager.Play("Fail");
+    }
+
+    //sound effects
+     void StopFootsteps(){
+        playingFootsteps = false;
+        CancelInvoke(nameof(PlayFootstep));
+    }
+
+    void StartFootsteps(){
+        playingFootsteps = true;
+        InvokeRepeating(nameof(PlayFootstep), 0f, footstepSpeed);
+    }   
+
+    void PlayFootstep(){
+        SoundEffectManager.Play("Footstep");
     }
 }
 

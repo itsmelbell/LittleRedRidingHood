@@ -16,12 +16,12 @@ MonoBehaviour:
   npcPortrait: {fileID: 0}
   dialougeLines:
   - Buzz buzz whats up?
-  - Oh, I saw some over yonder by those trees back here. I can take you there!
+  - Oh, I saw some over behind some bushes. Want to take a look!
   - 'Follow the path behind me! '
   - 'Right on. See you around buzz buzz. '
   typingSpeed: 0.05
-  voiceSound: {fileID: 0}
-  voicePitch: 1
+  voiceSound: {fileID: 8300000, guid: 133cdd366935ea041bb9a51879a1a52f, type: 3}
+  voicePitch: 0.7
   autoProgressLines: 0101
   endDialougeLines: 00000101
   autoProgressDelay: 1.5

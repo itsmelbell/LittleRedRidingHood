@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+//egg collected in platfomer level
 public class Egg : MonoBehaviour, IInteractable
 {
     public GameObject infoPanel;
@@ -16,6 +17,7 @@ public class Egg : MonoBehaviour, IInteractable
 
     public void collectItem(){
         GlobalHelper.getEgg(true);
+        SoundEffectManager.Play("Ingredient");
         infoPanel.SetActive(true);     
     }
 

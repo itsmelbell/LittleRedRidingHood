@@ -1,5 +1,6 @@
 using UnityEngine;
 
+//when player falls off a platform
 public class PlatformerRespawn : MonoBehaviour
 {
     [SerializeField] private float x;
@@ -10,6 +11,7 @@ public class PlatformerRespawn : MonoBehaviour
 
         if (collision.TryGetComponent(out PlatformerMovement player)){
             player.LoseLife();
+            SoundEffectManager.Play("Fall");
             if(player.getLives() <= 0){
                 return;
             }

@@ -2,6 +2,7 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 
+//NPC dialouge
 public class DialougeController : MonoBehaviour
 {
     public static DialougeController Instance {get; private set;}

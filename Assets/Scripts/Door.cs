@@ -1,6 +1,7 @@
 using UnityEngine;
 using Unity.Cinemachine;
 
+//Door to get in and out of Granny's house
 public class Door : MonoBehaviour, IInteractable
 {
     public bool IsOpened { get; private set;}
@@ -13,12 +14,6 @@ public class Door : MonoBehaviour, IInteractable
     [SerializeField] private float zoneOrthographicSize = 3f;
     [SerializeField] private float x;
     [SerializeField] private float y;
-
-
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start(){
-        DoorID ??= GlobalHelper.GenerateUniqueID(gameObject);
-    }
 
     private void Awake(){
         confiner = FindAnyObjectByType<CinemachineConfiner2D>();
@@ -35,6 +30,7 @@ public class Door : MonoBehaviour, IInteractable
 
     private void throughDoor()
     {
+        SoundEffectManager.Play("Door");
         confiner.BoundingShape2D = mapBoundry;
         confiner.InvalidateBoundingShapeCache();
         cCam.Lens.OrthographicSize = zoneOrthographicSize;

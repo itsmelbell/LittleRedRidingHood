@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+//sugar collected in bee level
 public class Sugar : MonoBehaviour, IInteractable
 {
     public GameObject infoPanel;
@@ -19,6 +20,7 @@ public class Sugar : MonoBehaviour, IInteractable
     public void collectItem(){
         collected = true;
         GlobalHelper.getSugar(true);
+        SoundEffectManager.Play("Ingredient");
         if(timer != null){
             timer.Stop();
         }

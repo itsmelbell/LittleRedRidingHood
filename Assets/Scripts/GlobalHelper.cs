@@ -1,6 +1,8 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+//keep track of what ingredients that player has
+//bypass inventory system
 public static class GlobalHelper
 {
     public static bool hasSugar {get; private set; } = false;   
@@ -25,9 +27,4 @@ public static class GlobalHelper
             return false;
         }
     }
-
-    public static string GenerateUniqueID(GameObject obj){
-        return $"{obj.scene.name}_{obj.transform.position.x}_{obj.transform.position.y}";
-    }
-
 }

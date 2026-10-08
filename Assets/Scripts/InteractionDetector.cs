@@ -18,7 +18,7 @@ public class InteractionDetector : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
+    //if player is close of interactable object
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.TryGetComponent(out IInteractable interactable) && interactable.CanInteract()){
@@ -27,6 +27,7 @@ public class InteractionDetector : MonoBehaviour
         }
     }
 
+    //when player leaves radius of interactable object
     private void OnTriggerExit2D(Collider2D collision){
         if(collision.TryGetComponent(out IInteractable interactable) && interactable == interactableRange){
             interactableRange = null;

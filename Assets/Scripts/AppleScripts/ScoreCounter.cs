@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI; // This line enables use of uGUI classes like Text.        // a
 using TMPro;
 
+//from apple picker
 public class ScoreCounter : MonoBehaviour {
     [Header("Dynamic")]                                                          // b
     public int score = 0;
